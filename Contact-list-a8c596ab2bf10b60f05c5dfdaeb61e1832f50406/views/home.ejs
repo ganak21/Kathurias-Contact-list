@@ -1,0 +1,99 @@
+<html>
+    <head>
+        <title>
+            <%= locals.title%>
+        </title>
+        
+        <style>
+            body{
+                background-color: white;
+                text-align: center;
+            }
+
+            h1{
+                color: 7B2869;
+                text-decoration: solid;
+                font-size: xxx-large;
+            }
+
+            .new{
+                border-radius: 12%;
+                font-size: medium;
+                background-color: FFBABA;
+            }
+
+            button {
+  background-color: 9D3C72;
+  border-radius: 8px;
+  border-style: none;
+  box-sizing: border-box;
+  color: #FFFFFF;
+  cursor: pointer;
+  display: inline-block;
+  font-family: "Haas Grot Text R Web", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  height: 40px;
+  line-height: 20px;
+  list-style: none;
+  margin: 0;
+  outline: none;
+  padding: 10px 16px;
+  position: relative;
+  text-align: center;
+  text-decoration: none;
+  transition: color 100ms;
+  vertical-align: baseline;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+}
+
+button:hover,
+button:focus {
+  background-color: #F082AC;
+}
+       
+
+        
+
+            .div1{
+                background-color: C85C8E;
+                display: inline-block;
+                border-radius: 5%;
+            }
+            
+        </style>
+    </head>
+    <body>
+
+        <div class = "div1">
+            <h1>Contact List</h1>
+        <div>
+            <ul>
+                   
+                <% for (let i of contact_list) { %> 
+                   <div class="contact"> 
+                        <li class = "name">
+                            <p><%= i.name %></p>
+                            <p><%= i.phone %></p>
+                        </li>
+                    </div>
+                    <div class="delete-button">
+                        <a href="/delete-contact/?id=<%= i._id %>">
+                            delete
+                        </a>
+                    </div>
+                <% } %>
+            </ul>
+        </div>
+
+        <form action="/create-contact" method="POST">
+            <input class = "new" type="text" name="name" placeholder="Enter name" required>
+            <input class = "new" type="number" name="phone" placeholder="Enter phone" required>
+            <button type="submit">Add contact</button>
+        </form>
+        <script type="text/javascript" src="/js/home.js"></script>
+    </div>
+    </body>
+</html>
