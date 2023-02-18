@@ -2,7 +2,7 @@
 const mongoose = require('mongoose');
 
 //connect to the database
-mongoose.connect('mongodb://localhost/Contacts');
+mongoose.connect('mongodb://127.0.0.1/Contacts');
 
 //acquire the connection(to check if it's successful)
 const db = mongoose.connection;
